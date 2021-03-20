@@ -67,6 +67,8 @@ var filteredData = ufo_data.filter(ufo_sighting => ufo_sighting.datetime === inp
 
 console.log(filteredData);
 
+//////WORKS UP TO HERE ///// ** just need code to print filtered data back to webpage
+
 // Assign variable to tbody to edit section
 ufo_table = d3.select("tbody");
 
