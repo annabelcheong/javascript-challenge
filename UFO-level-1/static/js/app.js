@@ -52,31 +52,46 @@ button.on("click",runEnter);
 // Complete the event handler function
 function runEnter(){
 
-// Prevent the page from refreshing
-d3.event.preventDefault();
+    // Prevent the page from refreshing
+    d3.event.preventDefault();
 
- // Select the input element and get the raw HTML node
- var inputElement = d3.select("#datetime");
-// Get the value property of the input element
-var inputValue = inputElement.property("value");
+    // Select the input element and get the raw HTML node
+    var inputElement = d3.select("#datetime");
+    // Get the value property of the input element
+    var inputValue = inputElement.property("value");
 
-//TEST:
-console.log(inputValue);
+    //TEST:
+    console.log(inputValue);
 
-var filteredData = ufo_data.filter(ufo_sighting => ufo_sighting.datetime === inputValue);
+    var filteredData = ufo_data.filter(ufo_sighting => ufo_sighting.datetime === inputValue);
 
-console.log(filteredData);
+    console.log(filteredData);
 
-//////WORKS UP TO HERE ///// ** just need code to print filtered data back to webpage
+    //////WORKS UP TO HERE ///// ** just need code to print filtered data back to webpage
 
-// Assign variable to tbody to edit section
-ufo_table = d3.select("tbody");
+    // Assign variable to tbody to edit section
+    ufo_table = d3.select("tbody");
 
-// remove everything in tbody section
-ufo_table.html("");
+    // remove everything in tbody section
+    ufo_table.html("");
 
-// Append filtered data to the ufo_table
-ufo_table.append(filteredData);
+    // Append filtered data to the ufo_table
+    // ufo_table.append(filteredData.value);
 
+    filteredData.forEach((f_ufo_sighting) => {
+
+        //TEST: console.log(f_ufo_sighting);
+        // Append the 'tr' rows (only skeleton - no content in the <tr> yet)
+        var row = tbody.append("tr");
+        // Get the key and value, and for each key and value pair, 
+        // Append <td> (only skeleton - no content in the <td> yet)
+        Object.entries(f_ufo_sighting).forEach(([key, value]) => {
+            console.log(key, value);
+            var cell = row.append("td");
+            // Append the value into each 'td' cell
+            cell.text(value);
+        });
+
+    });
 
 };
