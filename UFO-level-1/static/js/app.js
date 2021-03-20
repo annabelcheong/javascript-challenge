@@ -39,16 +39,42 @@ ufo_data.forEach((ufo_sighting) => {
 //  Filter by DATE/TIME Column and output corresponding user input.
 ///////////////////////////////////////////////////////
     
-// Select the date_input field
-var date_input = d3.select("#datetime");
+// Select the button and form
+var button = d3.select("#filter-btn");
+// var form = d3.select("")
+
+
 
 // Create event handlers
-date_input.on("submit", runEnter);
+button.on("click",runEnter);
+// date_input.on("submit", runEnter);
 
 // Complete the event handler function
 function runEnter(){
 
+// Prevent the page from refreshing
+d3.event.preventDefault();
+
+ // Select the input element and get the raw HTML node
+ var inputElement = d3.select("#datetime");
+// Get the value property of the input element
+var inputValue = inputElement.property("value");
+
+//TEST:
+console.log(inputValue);
+
+var filteredData = ufo_data.filter(ufo_sighting => ufo_sighting.datetime === inputValue);
+
+console.log(filteredData);
+
+// Assign variable to tbody to edit section
+ufo_table = d3.select("tbody");
+
+// remove everything in tbody section
+ufo_table.html("");
+
+// Append filtered data to the ufo_table
+ufo_table.append(filteredData);
 
 
-    
-}
+};
