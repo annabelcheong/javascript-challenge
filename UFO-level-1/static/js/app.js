@@ -7,6 +7,12 @@
 //    listen for events and search through the date/time column to find rows that match user input.
 
 // YOUR CODE HERE!
+
+///////////////////////////////////////////////////////
+// APPEND TABLE TO WEBPAGE 
+// (variable ufo_data from data.js' variable data)
+///////////////////////////////////////////////////////
+
 // Assign the variable 'data' from `data.js` to a descriptive variable 'ufo_data'
 var ufo_data = data;
 // TEST: console.log(ufo_data);
@@ -29,7 +35,20 @@ ufo_data.forEach((ufo_sighting) => {
     });
   });
 
-  
+///////////////////////////////////////////////////////
+//  Filter by DATE/TIME Column and output corresponding user input.
+///////////////////////////////////////////////////////
     
+// Select the date_input field
+var date_input = d3.select("#datetime");
+
+// Create event handlers
+date_input.on("submit", runEnter);
+
+// Complete the event handler function
+function runEnter(){
 
 
+
+    
+}
