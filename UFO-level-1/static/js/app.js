@@ -7,24 +7,24 @@
 //    listen for events and search through the date/time column to find rows that match user input.
 
 // YOUR CODE HERE!
-// Assign the data from `data.js` to a descriptive variable
+// Assign the variable 'data' from `data.js` to a descriptive variable 'ufo_data'
 var ufo_data = data;
-// console.log(ufo_data);
+// TEST: console.log(ufo_data);
 
-// Get a reference to the table body
+// Assign a variable reference to the table body
 var tbody = d3.select("tbody");
-
-// Use d3 to append one table row `tr` for each 'ufo_sighting' object
-// // Don't worry about adding cells or text yet, just try appending the `tr` elements.
 
 // Loop through 'ufo_data' and console.log 'ufo_sighting' object
 ufo_data.forEach((ufo_sighting) => {
-    // console.log(ufo_sighting);
+    //TEST: console.log(ufo_sighting);
+    // Append the 'tr' rows (only skeleton - no content in the <tr> yet)
     var row = tbody.append("tr");
-
+    // Get the key and value, and for each key and value pair, 
+    // Append <td> (only skeleton - no content in the <td> yet)
     Object.entries(ufo_sighting).forEach(([key, value]) => {
         console.log(key, value);
         var cell = row.append("td");
+        // Append the value into each 'td' cell
         cell.text(value);
     });
   });
