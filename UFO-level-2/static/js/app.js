@@ -66,14 +66,25 @@ function runEnter(){
      // Get the value property of the input element
      var inputCityValue = inputCityElement.property("value");
 
-
+      //STATE INPUT
+     // Select the input element and get the raw HTML node
+     var inputStateElement = d3.select("#state");
+     // Get the value property of the input element
+     var inputStateValue = inputStateElement.property("value");
 
     //TEST:
     console.log(inputValue);
     console.log(inputCityValue);
+    console.log(inputStateValue);
 
     // Filtered data to include input values of the date/time, city, state, country, shape.
-    var filteredData = ufo_data.filter(ufo_sighting => ufo_sighting.datetime === inputValue && ufo_sighting.city ===inputCityValue);
+    var filteredData = ufo_data.filter(ufo_sighting => 
+        ufo_sighting.datetime === inputValue && 
+        ufo_sighting.city ===inputCityValue && 
+        ufo_sighting.state == inputStateValue
+        );
+        
+        // ufo_sighting.datetime === inputValue && ufo_sighting.city ===inputCityValue;
 
     console.log(filteredData);
 
