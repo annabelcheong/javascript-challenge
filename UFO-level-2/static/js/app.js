@@ -72,6 +72,7 @@ function runEnter(){
     console.log(inputValue);
     console.log(inputCityValue);
 
+    // Filtered data to include input values of the date/time, city, state, country, shape.
     var filteredData = ufo_data.filter(ufo_sighting => ufo_sighting.datetime === inputValue && ufo_sighting.city ===inputCityValue);
 
     console.log(filteredData);
@@ -103,9 +104,7 @@ function runEnter(){
 
     });
 
-///////////////////////////////////////////////////////
-//  Filter by CITY Column and output corresponding user input.
-///////////////////////////////////////////////////////
+
 
 
 
