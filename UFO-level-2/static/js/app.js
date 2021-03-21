@@ -54,16 +54,25 @@ function runEnter(){
 
     // Prevent the page from refreshing
     d3.event.preventDefault();
-
+    // DATETIME INPUT
     // Select the input element and get the raw HTML node
     var inputElement = d3.select("#datetime");
     // Get the value property of the input element
     var inputValue = inputElement.property("value");
 
+    //CITY INPUT
+     // Select the input element and get the raw HTML node
+     var inputCityElement = d3.select("#city");
+     // Get the value property of the input element
+     var inputCityValue = inputCityElement.property("value");
+
+
+
     //TEST:
     console.log(inputValue);
+    console.log(inputCityValue);
 
-    var filteredData = ufo_data.filter(ufo_sighting => ufo_sighting.datetime === inputValue);
+    var filteredData = ufo_data.filter(ufo_sighting => ufo_sighting.datetime === inputValue && ufo_sighting.city ===inputCityValue);
 
     console.log(filteredData);
 
@@ -94,4 +103,19 @@ function runEnter(){
 
     });
 
+///////////////////////////////////////////////////////
+//  Filter by CITY Column and output corresponding user input.
+///////////////////////////////////////////////////////
+
+
+
+
+
+
+
 };
+
+
+
+
+
