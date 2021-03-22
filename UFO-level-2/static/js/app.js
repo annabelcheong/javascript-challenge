@@ -99,9 +99,7 @@ function runEnter(){
         ufo_sighting.country === inputCountryValue &&
         ufo_sighting.shape === inputShapeValue
         );
-
-        // ufo_sighting.datetime === inputValue && ufo_sighting.city ===inputCityValue;
-
+        
     console.log(filteredData);
 
     //////WORKS UP TO HERE ///// ** just need code to print filtered data back to webpage
