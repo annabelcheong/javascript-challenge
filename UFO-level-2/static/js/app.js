@@ -91,16 +91,26 @@ function runEnter(){
     console.log(inputCountryValue);
     console.log(inputShapeValue);
 
+    date_len = inputValue.length;  
+    console.log(date_len);
+
     // Filtered data to include input values of the date/time, city, state, country, shape.
-    var filteredData = ufo_data.filter(ufo_sighting => 
-        ufo_sighting.datetime === inputValue && 
-        ufo_sighting.city ===inputCityValue && 
-        ufo_sighting.state === inputStateValue &&
-        ufo_sighting.country === inputCountryValue &&
-        ufo_sighting.shape === inputShapeValue
-        );
-        
-    console.log(filteredData);
+    // var filteredData = ufo_data.filter(ufo_sighting => 
+    //   
+    //     // ufo_sighting.datetime === inputValue && 
+    //     ufo_sighting.city === inputCityValue && 
+    //     ufo_sighting.state === inputStateValue &&
+    //     ufo_sighting.country === inputCountryValue &&
+    //     ufo_sighting.shape === inputShapeValue
+    // );
+
+var filteredData = ufo_data.filter(ufo_sighting => ufo_sighting.datetime == (inputValue===''?ufo_sighting.datetime:inputValue))
+                    .filter(ufo_sighting => ufo_sighting.city == (inputCityValue===''?ufo_sighting.city:inputCityValue))
+                    .filter(ufo_sighting => ufo_sighting.state == (inputStateValue===''?ufo_sighting.state:inputStateValue))
+                    .filter(ufo_sighting => ufo_sighting.country == (inputCountryValue===''?ufo_sighting.country:inputCountryValue))
+                    .filter(ufo_sighting => ufo_sighting.shape == (inputShapeValue===''?ufo_sighting.shape:inputShapeValue));
+            
+                    console.log(filteredData);
 
     //////WORKS UP TO HERE ///// ** just need code to print filtered data back to webpage
 
