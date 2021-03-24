@@ -31,7 +31,7 @@ This repository contains:
 		- This file was provided in the assignment.
 	- app.js
 		- Contains 5 input fields (date, city, state, country, shape) and can filter as per user input when user inputs into 1 or more fields. The user has the option to leave fields blank.	
-		- This file is the jacascript code to filter and append cells into the table which read in from the index.html file. 
+		- This file is the javascript code to filter and append cells into the table which read in from the index.html file. 
 
 - FOLDER: images
 *Both images were provided in the assignment. 
