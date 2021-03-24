@@ -1,12 +1,13 @@
-// 1. Create a basic HTML web page or use the index.html file provided 
-//    (we recommend building your own custom page!).
-// 2. Using the UFO dataset provided in the form of an array of JavaScript objects, 
-//    write code that appends a table to your web page and then adds new rows of data for each UFO sighting.
-// 3. Make sure you have a column for date/time, city, state, country, shape, and comment at the very least.
-// 4. Use a date form in your HTML document and write JavaScript code that will 
-//    listen for events and search through the date/time column to find rows that match user input.
-
-// YOUR CODE HERE!
+// Level 2: Multiple Search Categories (Optional Activity)
+// 1. Complete all of Level 1 criteria.
+// 2. Using multiple input tags and/or select dropdowns, write JavaScript code 
+// so the user can to set multiple filters and search for UFO sightings using the 
+// following criteria based on the table columns:
+// - date/time
+// - city
+// - state
+// - country
+// - shape
 
 ///////////////////////////////////////////////////////
 // APPEND TABLE TO WEBPAGE 
@@ -41,13 +42,9 @@ ufo_data.forEach((ufo_sighting) => {
     
 // Select the button and form
 var button = d3.select("#filter-btn");
-// var form = d3.select("")
-
-
 
 // Create event handlers
 button.on("click",runEnter);
-// date_input.on("submit", runEnter);
 
 // Complete the event handler function
 function runEnter(){
@@ -94,25 +91,34 @@ function runEnter(){
     date_len = inputValue.length;  
     console.log(date_len);
 
-    // Filtered data to include input values of the date/time, city, state, country, shape.
-    // var filteredData = ufo_data.filter(ufo_sighting => 
-    //   
-    //     // ufo_sighting.datetime === inputValue && 
-    //     ufo_sighting.city === inputCityValue && 
-    //     ufo_sighting.state === inputStateValue &&
-    //     ufo_sighting.country === inputCountryValue &&
-    //     ufo_sighting.shape === inputShapeValue
-    // );
+    /////////////////////////////////////////////////////////////////////////
+    // OPTION 1
+        // THIS OPTION MUST INCLUDE ALL INPUT VALUES TO MATCH DATA SET.
+        // Filtered data to include input values of the date/time, city, state, country, shape.
+        // var filteredData = ufo_data.filter(ufo_sighting => 
+        //   
+        //     ufo_sighting.datetime === inputValue && 
+        //     ufo_sighting.city === inputCityValue && 
+        //     ufo_sighting.state === inputStateValue &&
+        //     ufo_sighting.country === inputCountryValue &&
+        //     ufo_sighting.shape === inputShapeValue
+        // );
 
-var filteredData = ufo_data.filter(ufo_sighting => ufo_sighting.datetime == (inputValue===''?ufo_sighting.datetime:inputValue))
-                    .filter(ufo_sighting => ufo_sighting.city == (inputCityValue===''?ufo_sighting.city:inputCityValue))
-                    .filter(ufo_sighting => ufo_sighting.state == (inputStateValue===''?ufo_sighting.state:inputStateValue))
-                    .filter(ufo_sighting => ufo_sighting.country == (inputCountryValue===''?ufo_sighting.country:inputCountryValue))
-                    .filter(ufo_sighting => ufo_sighting.shape == (inputShapeValue===''?ufo_sighting.shape:inputShapeValue));
-            
-                    console.log(filteredData);
+    /////////////////////////////////////////////////////////////////////////
+    // OPTION 2
+        //THIS OPTION ALLOWS USER TO LEAVE FIELDS BLANK AND ONLY ENTER IN ONE OR MORE FIELDS TO SUCCESSFULLY FILTER.
+        //Filter in ufo_data variable: For each key (date, city, state, country or shape), assign a value to it. 
+        //The value assigned depends on the input value. If input value is nothing ie. '', leave as per the date, city,state, country or shape OBJECT, 
+        // and if it is equal to the user input value, assign input value to the object key.`
+    var filteredData = ufo_data.filter(ufo_sighting => ufo_sighting.datetime == (inputValue===''?ufo_sighting.datetime:inputValue))
+                        .filter(ufo_sighting => ufo_sighting.city == (inputCityValue===''?ufo_sighting.city:inputCityValue))
+                        .filter(ufo_sighting => ufo_sighting.state == (inputStateValue===''?ufo_sighting.state:inputStateValue))
+                        .filter(ufo_sighting => ufo_sighting.country == (inputCountryValue===''?ufo_sighting.country:inputCountryValue))
+                        .filter(ufo_sighting => ufo_sighting.shape == (inputShapeValue===''?ufo_sighting.shape:inputShapeValue));
+                
+    console.log(filteredData);
 
-    //////WORKS UP TO HERE ///// ** just need code to print filtered data back to webpage
+    /////////////////////////////////////////////////////////////////////////
 
     // Assign variable to tbody to edit section
     ufo_table = d3.select("tbody");
@@ -120,12 +126,9 @@ var filteredData = ufo_data.filter(ufo_sighting => ufo_sighting.datetime == (inp
     // remove everything in tbody section
     ufo_table.html("");
 
-    // Append filtered data to the ufo_table
-    // ufo_table.append(filteredData.value);
-
+    //Append the data into created table rows and table datas given the variable filteredData.
     filteredData.forEach((f_ufo_sighting) => {
 
-        //TEST: console.log(f_ufo_sighting);
         // Append the 'tr' rows (only skeleton - no content in the <tr> yet)
         var row = tbody.append("tr");
         // Get the key and value, and for each key and value pair, 
@@ -139,17 +142,4 @@ var filteredData = ufo_data.filter(ufo_sighting => ufo_sighting.datetime == (inp
 
     });
 
-
-
-
-
-
-
-
-
 };
-
-
-
-
-

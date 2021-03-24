@@ -1,3 +1,4 @@
+// Level 1: Automatic Table and Date Search (Required)
 // 1. Create a basic HTML web page or use the index.html file provided 
 //    (we recommend building your own custom page!).
 // 2. Using the UFO dataset provided in the form of an array of JavaScript objects, 
@@ -5,8 +6,6 @@
 // 3. Make sure you have a column for date/time, city, state, country, shape, and comment at the very least.
 // 4. Use a date form in your HTML document and write JavaScript code that will 
 //    listen for events and search through the date/time column to find rows that match user input.
-
-// YOUR CODE HERE!
 
 ///////////////////////////////////////////////////////
 // APPEND TABLE TO WEBPAGE 
@@ -41,13 +40,9 @@ ufo_data.forEach((ufo_sighting) => {
     
 // Select the button and form
 var button = d3.select("#filter-btn");
-// var form = d3.select("")
-
-
 
 // Create event handlers
 button.on("click",runEnter);
-// date_input.on("submit", runEnter);
 
 // Complete the event handler function
 function runEnter(){
@@ -67,7 +62,9 @@ function runEnter(){
 
     console.log(filteredData);
 
-    //////WORKS UP TO HERE ///// ** just need code to print filtered data back to webpage
+///////////////////////////////////////////////////////
+//  Output the table on html page as per the filteredData
+///////////////////////////////////////////////////////
 
     // Assign variable to tbody to edit section
     ufo_table = d3.select("tbody");
